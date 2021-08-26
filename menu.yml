@@ -1,0 +1,26 @@
+title: 信息控制台
+child:
+- title: 表空间一览
+  cmd: sh ~/yunwei/get_tbs.sh
+- title: 前十大容量表
+  cmd: sh ~/yunwei/get_bigtable.sh
+- title: Queryhistorylog 分区一览
+  cmd: sh ~/yunwei/get_part.sh
+- title: DXJQR1用户索引有效性
+  cmd: sh ~/yunwei/index_stat.sh
+- title: 当前连接数
+  cmd: sh ~/yunwei/get_gsession.sh
+- title: 当前锁状态
+  cmd: sh ~/yunwei/lock_sql.sh
+- title: 日志切换时间
+  cmd: sh ~/yunwei/log_switch.sh
+- title: 当前buffer值
+  cmd: sh ~/yunwei/get_buffer.sh
+- title: How 清理审计日志表
+  cmd: sh ~/yunwei/howto_aud.sh
+- title: 重点表分析
+  child:
+  - title: dialoghistory
+    cmd:  sh ~/yunwei/analyze_tab.sh dialoghistory
+  - title: telecom_pv
+    cmd: sh ~/yunwei/analyze_tab.sh telecom_pv
