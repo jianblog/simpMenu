@@ -5,10 +5,13 @@
 ##
 
 
+import io
 import os, sys, json, yaml
 import subprocess
 from node import GroupNode, ActNode
 
+sys.stdout = sys.__stdout__ = io.TextIOWrapper(sys.stdout.detach(), encoding='utf-8', line_buffering=True)
+sys.stderr = sys.__stderr__ = io.TextIOWrapper(sys.stderr.detach(), encoding='utf-8', line_buffering=True)
 
 def parseMenu(obj):
     node = None
@@ -82,23 +85,22 @@ def makeArgs(args):
     return ''.join(argStr)
 
 if  __name__ == '__main__':
-    dirname = os.path.split(os.path.realpath(__file__))[0]
-    abspath = os.path.abspath(dirname)
+    abspath = os.path.dirname(os.path.realpath(sys.argv[0]))
 
     menu_struct = None
     menu_file = os.path.join(abspath,"menu.yml")
     if len(sys.argv) > 1 and os.path.exists(os.path.join(abspath, sys.argv[1])):
         menu_file = os.path.join(abspath, sys.argv[1])
-        with open(menu_file, 'r') as f:
+        with open(menu_file, 'r', encoding='utf-8') as f:
             j = yaml.load(f, Loader=yaml.FullLoader)
             menu_struct = parseMenu(j)
     elif  os.path.exists(menu_file):
-        with open(menu_file, 'r') as f:
+        with open(menu_file, 'r', encoding='utf-8') as f:
             j = yaml.load(f, Loader=yaml.FullLoader)
             menu_struct = parseMenu(j)
     elif os.path.exists(os.path.join(abspath,"menu.json")):
         menu_file = os.path.join(abspath, "menu.json")
-        with open(menu_file, 'r') as f:
+        with open(menu_file, 'r', encoding='utf-8'') as f:
             j = json.load(f)
             menu_struct = parseMenu(j)
 
