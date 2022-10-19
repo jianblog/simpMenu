@@ -100,7 +100,7 @@ if  __name__ == '__main__':
             menu_struct = parseMenu(j)
     elif os.path.exists(os.path.join(abspath,"menu.json")):
         menu_file = os.path.join(abspath, "menu.json")
-        with open(menu_file, 'r', encoding='utf-8'') as f:
+        with open(menu_file, 'r', encoding='utf-8') as f:
             j = json.load(f)
             menu_struct = parseMenu(j)
 
