@@ -85,6 +85,7 @@ def makeArgs(args):
     return ''.join(argStr)
 
 if  __name__ == '__main__':
+    dirname = os.path.split(os.path.realpath(__file__))[0]
     abspath = os.path.dirname(os.path.realpath(sys.argv[0]))
 
     menu_struct = None
