@@ -132,7 +132,7 @@ if  __name__ == '__main__':
                 k = input("\n确认执行请按y,其他返回:")
                 if k != 'y':
                     continue
-                ret = subprocess.Popen(shells, shell=True,  stdout=subprocess.PIPE, stderr=subprocess.PIPE, cwd=dirname)
+                ret = subprocess.Popen(shells, shell=True,  stdout=subprocess.PIPE, stderr=subprocess.PIPE, cwd=absname)
                 if ret.stdout:
                     for line in ret.stdout:
                         line = line.decode('utf-8').strip()
